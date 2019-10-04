@@ -85,7 +85,7 @@
     </Reference>
     <Reference Include="IdeaStatiCa.IOMToConnection, Version=10.1.99.54266, Culture=neutral, PublicKeyToken=b195254c3273d5c1, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Users\pavel.vadura\Work\release_101\_Sources\bin\Debug\IdeaStatiCa.IOMToConnection.dll</HintPath>
+      <HintPath>..\..\..\..\Program Files\IDEA StatiCa\StatiCa 10.1\IdeaStatiCa.IOMToConnection.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />

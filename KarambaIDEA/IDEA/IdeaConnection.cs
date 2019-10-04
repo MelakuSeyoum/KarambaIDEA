@@ -84,7 +84,7 @@ namespace KarambaIDEA.IDEA
             example.SaveToXmlFile("example.xml");
 
             var desktopDir = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
-            var fileConnFileNameFromLocal = Path.Combine(desktopDir, "connectionFromIOM-local.ideaCon");
+            var fileConnFileNameFromLocal = Path.Combine(desktopDir, "22RAZconnectionFromIOM-local.ideaCon");
 
 			string ideaConLinkFullPath = System.IO.Path.Combine(IdeaInstallDir, "IdeaStatiCa.IOMToConnection.dll");
 			var conLinkAssembly = Assembly.LoadFrom(ideaConLinkFullPath);
@@ -109,7 +109,6 @@ namespace KarambaIDEA.IDEA
 
             // end console application
             Console.WriteLine("Done. Press any key to exit.");
-            Console.ReadKey();
 
         }
 
