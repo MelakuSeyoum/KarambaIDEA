@@ -7,7 +7,6 @@ using System.Linq;
 
 
 using IdeaRS.OpenModel.Connection;
-using IdeaRS.Connections.Data;
 using IdeaRS.OpenModel;
 using IdeaRS.OpenModel.Result;
 
@@ -83,8 +82,10 @@ namespace KarambaIDEA.IDEA
             result.SaveToXmlFile("example.xmlR");
             example.SaveToXmlFile("example.xml");
 
-            var desktopDir = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
-            var fileConnFileNameFromLocal = Path.Combine(desktopDir, "22RAZconnectionFromIOM-local.ideaCon");
+            string filename = joint.Name + ".ideaCon";
+
+            //var desktopDir = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+            var fileConnFileNameFromLocal = Path.Combine(folder,joint.Name, filename);
 
 			string ideaConLinkFullPath = System.IO.Path.Combine(IdeaInstallDir, "IdeaStatiCa.IOMToConnection.dll");
 			var conLinkAssembly = Assembly.LoadFrom(ideaConLinkFullPath);

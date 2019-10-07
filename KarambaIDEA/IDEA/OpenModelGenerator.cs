@@ -243,11 +243,18 @@ namespace KarambaIDEA
             Point3D pB = new Point3D();
             Point3D pB2 = new Point3D();
             Point3D pC = new Point3D();
-
+            /*
             pA = openModel.Point3D.First(a => a.Id == bearingMembers[0].ElementRAZ.line.Start.id);
             pB = openModel.Point3D.First(a => a.Id == bearingMembers[0].ElementRAZ.line.End.id);
             pB2 = openModel.Point3D.First(a => a.Id == bearingMembers[1].ElementRAZ.line.Start.id);
             pC = openModel.Point3D.First(a => a.Id == bearingMembers[1].ElementRAZ.line.End.id);
+            */
+            pA = openModel.Point3D.First(a => a.Id == bearingMembers[0].ideaLine.End.id);
+            pB = openModel.Point3D.First(a => a.Id == bearingMembers[0].ideaLine.Start.id);
+            pB2 = openModel.Point3D.First(a => a.Id == bearingMembers[1].ideaLine.Start.id);
+            pC = openModel.Point3D.First(a => a.Id == bearingMembers[1].ideaLine.End.id);
+
+
 
             List<Point3D> points = new List<Point3D>() { pA, pB, pB2, pC };
 
@@ -332,8 +339,12 @@ namespace KarambaIDEA
             openModel.AddObject(polyLine3D);
 
             //endpoints
+            /*
             Point3D pA = openModel.Point3D.First(a => a.Id == attachedMember.ideaLine.Start.id);
             Point3D pB = openModel.Point3D.First(a => a.Id == attachedMember.ideaLine.End.id);
+            */
+            Point3D pA = openModel.Point3D.First(a => a.Id == attachedMember.ElementRAZ.line.Start.id);
+            Point3D pB = openModel.Point3D.First(a => a.Id == attachedMember.ElementRAZ.line.End.id);
 
             //create line segment
             LineSegment3D lineSegment = new LineSegment3D();
@@ -499,6 +510,7 @@ namespace KarambaIDEA
                                 }
                                 else
                                 {
+                                    //SetEndLoads(1, joint, GrassLCId, GrassId, resLoadCase, resSec);
                                     SetEndLoads(-1, joint, GrassLCId, GrassId, resLoadCase, resSec);
                                 }
                             }
@@ -603,36 +615,6 @@ namespace KarambaIDEA
                 vz = VectorRAZ.RotateVector(vx, attachedMember.ElementRAZ.rotationLCS, vz);
             }
 
-            var LocalCoordinateSystem = new CoordSystemByVector();
-            LocalCoordinateSystem.VecX = new Vector3D() { X = vx.X, Y = vx.Y, Z = vx.Z };
-            LocalCoordinateSystem.VecY = new Vector3D() { X = vy.X, Y = vy.Y, Z = vy.Z };
-            LocalCoordinateSystem.VecZ = new Vector3D() { X = vz.X, Y = vz.Y, Z = vz.Z };
-
-            lineSegment.LocalCoordinateSystem = LocalCoordinateSystem;
-        }
-        public void SetLCSwithRotation(AttachedMember attachedMember, LineSegment3D lineSegment)
-        {
-            //Explode x-vector
-            double xcor = attachedMember.ElementRAZ.line.vector.X;
-            double ycor = attachedMember.ElementRAZ.line.vector.Y;
-            double zcor = attachedMember.ElementRAZ.line.vector.Z;
-
-            VectorRAZ vx = new VectorRAZ(xcor, ycor, zcor).Unitize();
-
-            double rotation = attachedMember.ElementRAZ.rotationLCS;
-
-            //Explode z-vector
-            double xcorZ = 0.0;
-            double ycorZ = 0.0;
-            double zcorZ = 0.0;
-
-            VectorRAZ vz = new VectorRAZ(xcorZ, ycorZ, zcorZ).Unitize();
-
-            //Create y-vector with cross-product
-            VectorRAZ vy = new VectorRAZ();
-            vz = new VectorRAZ((vz.Y*vx.Z-vx.Y*vz.Z), (-vz.X*vx.Z+vx.X*vz.Z), (vz.X*vx.Y-vx.X*vz.Y)).Unitize();
-            
-            //Set LCS
             var LocalCoordinateSystem = new CoordSystemByVector();
             LocalCoordinateSystem.VecX = new Vector3D() { X = vx.X, Y = vx.Y, Z = vx.Z };
             LocalCoordinateSystem.VecY = new Vector3D() { X = vy.X, Y = vy.Y, Z = vy.Z };

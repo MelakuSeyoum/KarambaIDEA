@@ -68,20 +68,10 @@
       <HintPath>..\..\..\..\Program Files\Rhino 6\Plug-ins\Grasshopper\Grasshopper.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="IdeaRS.Connections, Version=10.0.39.53451, Culture=neutral, PublicKeyToken=b195254c3273d5c1, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Program Files\IDEA StatiCa\StatiCa 10.1\IdeaRS.Connections.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="IdeaRS.OpenModel, Version=10.0.39.53451, Culture=neutral, PublicKeyToken=b195254c3273d5c1, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Program Files\IDEA StatiCa\StatiCa 10.1\IdeaRS.OpenModel.dll</HintPath>
       <Private>True</Private>
-    </Reference>
-    <Reference Include="IdeaStatiCa.ConnectionBasicTypes, Version=10.0.39.53451, Culture=neutral, PublicKeyToken=b195254c3273d5c1, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Program Files\IDEA StatiCa\StatiCa 10.1\IdeaStatiCa.ConnectionBasicTypes.dll</HintPath>
-      <Private>False</Private>
     </Reference>
     <Reference Include="IdeaStatiCa.IOMToConnection, Version=10.1.99.54266, Culture=neutral, PublicKeyToken=b195254c3273d5c1, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
